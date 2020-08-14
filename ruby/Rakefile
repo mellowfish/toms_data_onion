@@ -1,0 +1,53 @@
+require "pry"
+require_relative "lib/onion"
+
+task default: %w(status)
+
+desc "Clear the ./data folder"
+task :reseed do
+  Onion::Reseed.instance.call
+end
+
+desc "View the status of the onion"
+task :status do
+  puts "Onion contents:"
+  puts `ls data`
+end
+
+desc "Extract layer 0 from seed html"
+task :layer_zero do
+  Onion::Layers::Zero.clear!
+  puts Onion::Layers::Zero.instance.instructions
+end
+
+desc "Extract layer 1 from layer 0"
+task :layer_one do
+  Onion::Layers::One.clear!
+  puts Onion::Layers::One.instance.instructions
+end
+
+desc "Extract layer 2 from layer 1"
+task :layer_two do
+  Onion::Layers::Two.clear!
+  puts Onion::Layers::Two.instance.instructions
+end
+
+desc "Extract layer 3 from layer 2"
+task :layer_three do
+  Onion::Layers::Three.clear!
+  puts Onion::Layers::Three.instance.instructions
+end
+
+task :test_ascii85 do
+  plain_text = <<~TXT.strip
+    Man is distinguished, not only by his reason, but by this singular passion from other animals, which is a lust of the mind, that by a perseverance of delight in the continued and indefatigable generation of knowledge, exceeds the short vehemence of any carnal pleasure.
+  TXT
+
+  puts plain_text
+  puts Onion::Ascii85.encode(plain_text)
+  puts Onion::Ascii85.decode(Onion::Ascii85.encode(plain_text))
+end
+
+task :test_misc do
+  Onion::Layers::Two::CompactBytes.call(0b00000001)
+end
