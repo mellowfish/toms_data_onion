@@ -9,6 +9,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    aes_key_wrap (1.1.0)
     ast (2.4.1)
     coderay (1.1.3)
     concurrent-ruby (1.1.7)
@@ -56,6 +57,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  aes_key_wrap
   down
   pry
   ramsey_cop

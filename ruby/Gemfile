@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "activesupport" # Because really: this is part of the ruby standard library
+gem "aes_key_wrap" # For layer 5's decrypting (Tom's own library)
 gem "down" # To safely/efficiently download the original file
 gem "pry" # To stop and look around
 gem "ramsey_cop" # Because I need rubocop to be happy, and I might as well match work

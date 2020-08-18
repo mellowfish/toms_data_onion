@@ -1,9 +1,11 @@
 require "active_support"
 require "active_support/core_ext"
 
+require "aes_key_wrap"
 require "down"
 require "fileutils"
 require "pry"
+require "openssl"
 
 module Onion
   DATA_DIR = "./data"
@@ -23,3 +25,4 @@ require_relative "onion/layers/two"
 require_relative "onion/layers/three"
 require_relative "onion/layers/four"
 require_relative "onion/layers/five"
+require_relative "onion/layers/six"
