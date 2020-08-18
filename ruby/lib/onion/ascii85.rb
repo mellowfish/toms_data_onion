@@ -53,7 +53,7 @@ module Onion
           ciphertext = ciphertext[2..-3]
 
           ciphertext = ciphertext.chars
-          padding = (5 - ciphertext.length % 5)
+          padding = (5 - ciphertext.length % 5) % 5
           padding.times do
             ciphertext << "u"
           end

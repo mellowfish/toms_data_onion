@@ -38,6 +38,18 @@ task :layer_three do
   puts Onion::Layers::Three.instance.instructions
 end
 
+desc "Extract layer 4 from layer 3"
+task :layer_four do
+  Onion::Layers::Four.clear!
+  puts Onion::Layers::Four.instance.instructions
+end
+
+desc "Extract layer 5 from layer 4"
+task :layer_five do
+  Onion::Layers::Five.clear!
+  puts Onion::Layers::Five.instance.instructions
+end
+
 task :test_ascii85 do
   plain_text = <<~TXT.strip
     Man is distinguished, not only by his reason, but by this singular passion from other animals, which is a lust of the mind, that by a perseverance of delight in the continued and indefatigable generation of knowledge, exceeds the short vehemence of any carnal pleasure.
