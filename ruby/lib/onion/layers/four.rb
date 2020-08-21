@@ -148,7 +148,6 @@ module Onion
           return false unless header.checksum_valid?
           return false unless data.checksum_valid?(self)
 
-          # TODO checksums
           true
         end
       end
